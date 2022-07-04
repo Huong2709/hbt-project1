@@ -3,6 +3,9 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 import pickle
+# data pre-processing libraries
+from sklearn.preprocessing import MinMaxScaler, StandardScaler, RobustScaler
+from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 # model
 from sklearn.ensemble import RandomForestRegressor, ExtraTreesRegressor, BaggingRegressor
 from sklearn.neighbors import KNeighborsRegressor
