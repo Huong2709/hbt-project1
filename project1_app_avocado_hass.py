@@ -1,6 +1,7 @@
 # Import library
 from nbformat import write
 import streamlit as st
+from streamlit_player import st_player
 import numpy as np
 import pandas as pd
 import pickle
@@ -356,7 +357,7 @@ elif choice == 'Predict prices by Regression':
                 st.markdown("<h5 style='text-align: left; color: Black;'>Input information:</h5>", unsafe_allow_html=True)
                 st.write("1. Model name: ExtraTreesRegressor")
                 st.markdown("2. Input data: ")
-                for i in input_data.columns[:-3]:
+                for i in input_data.columns:
                     st.write('&nbsp;'*10 + '- ' + i + ': ' + str(input_data[i][0]))
                 # st.dataframe(input_data)
                 st.write("<h5 style='text-align: left; color: Black;'>Prediction results:</h5>", unsafe_allow_html=True)
@@ -380,7 +381,7 @@ elif choice == 'Predict prices by Regression':
                 st.markdown("<h5 style='text-align: left; color: Black;'>Input information:</h5>", unsafe_allow_html=True)
                 st.write("1. Model name: RandomForestRefressor")
                 st.markdown("2. Input data: ")
-                for i in input_data.columns[:-3]:
+                for i in input_data.columns:
                     st.write('&nbsp;'*10 + '- ' + i + ': ' + str(input_data[i][0]))
                 # st.dataframe(input_data)
                 st.write("<h5 style='text-align: left; color: Black;'>Prediction results:</h5>", unsafe_allow_html=True)
@@ -398,12 +399,15 @@ elif choice == 'Predict prices by Regression':
                 st.markdown("<h5 style='text-align: left; color: Black;'>Input information:</h5>", unsafe_allow_html=True)
                 st.write("1. Model name: BaggingRegressor")
                 st.markdown("2. Input data: ")
-                for i in input_data.columns[:-3]:
+                for i in input_data.columns:
                     st.write('&nbsp;'*10 + '- ' + i + ': ' + str(input_data[i][0]))
                 # st.dataframe(input_data)
                 st.write("<h5 style='text-align: left; color: Black;'>Prediction results:</h5>", unsafe_allow_html=True)
                 st.write("Prediction price: " + str(round(yhat[0],3))) 
         else:
+            # Embed a youtube video
+            st_player("https://youtu.be/O9-xOx_A3cw")
+            # Step by step
             st.write("<h5 style='text-align: left; color: Black;'>Guidance:</h5>", unsafe_allow_html=True)
             st.write("To use specific models to predict avocado prices, please follow these steps and get the predict results.")
             st.write("**Step 1: Choose the way to input data: input a specific features directlly or load a csv file**")
@@ -712,7 +716,7 @@ elif choice == 'Predict prices by Time series':
             t1 = 'This model is **good** for predicting ' + input_type + ' hass of ' + input_region +'.'
             t2 = 'Forecast results of ' + input_region + ' for '+ str(input_month) + ' months:'
         else: 
-            t1 = 'This model is **not good** for predicting ' + input_type + 'hass of ' + input_region +'.'
+            t1 = 'This model is **not good** for predicting ' + input_type + ' hass of ' + input_region +'.'
             t2 = 'This forecast results of ' + input_region + ' for '+ str(input_month) + ' months are **for reference only**:'
         st.write(t1)
         st.write(t2)
@@ -727,7 +731,10 @@ elif choice == 'Predict prices by Time series':
                                     file_name='forecast_results.csv',
                                     mime='text/csv',
                                     )
-    else: 
+    else:
+        # Embed a youtube video
+        st_player("https://youtu.be/O9-xOx_A3cw")
+        # Step by step 
         st.write("<h5 style='text-align: left; color: Black;'>Guidance:</h5>", unsafe_allow_html=True)
         st.write("To use specific models to forecast avocado prices by region, type and the number of next months, please follow these steps and get the forecast results.")
         st.write("**Step 1: Choose input data for each of data elements: Type, Region and Number of months.**")
