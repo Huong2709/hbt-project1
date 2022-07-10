@@ -20,3 +20,4 @@ import-ipynb
 ipynb
 # tensorflow
 # holidays
+streamlit-player
